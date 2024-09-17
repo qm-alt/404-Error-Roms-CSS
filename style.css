@@ -1,0 +1,180 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+	
+:root {
+    --c0: #71a1ff;
+    --c1: #4d85f6;
+    --c2: #3b72e2;
+    --c3: #336de2;
+    --c4: #2151af;
+    --c5: #244483;
+    --c6: #103071;
+    --clr: 1; /* change color from 1 to 12 */
+	--hue: calc(30deg - (30deg * var(--clr))); 
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    perspective: 1000vmin;
+    font-family: 'Varela Round', Arial, Helvetica, serif;
+	background: var(--c0);
+}
+
+body * {
+    transform-style: preserve-3d;
+}
+
+
+.cuboid {
+     --size: 250;
+    --height: var(--size);
+    --width: var(--size);
+    --depth: var(--size);
+    height: calc(var(--size) * 1vmin);
+    width: calc(var(--size) * 1vmin);
+    position: absolute;
+    transform: rotateX(50deg) rotate(45deg);
+    pointer-events: none;
+}
+
+.cuboid .side {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 100%;
+	width: 100%;
+	border-radius: 2px;
+    box-shadow: 0vmin 0vmin 0.5vmin 0 var(--c0) inset, 0 0 5vmin 0 var(--c0);
+}
+
+.cuboid .side:nth-of-type(1) {
+	transform: translate3d(-50%, -50%, calc(var(--size) * -0.5vmin)) rotateY(180deg);
+	background: radial-gradient(circle at 100% 0%, var(--c4), #fff0 45vmin),radial-gradient(circle at 100% 0%, var(--c1), var(--c4));
+}
+ 
+.cuboid .side:nth-of-type(2) {
+	width: calc(var(--size) * 1vmin);
+	transform: translate(-50%, -50%) rotateY(-90deg) translate3d(0, 0, calc(var(--size) * 0.5vmin));
+	background: radial-gradient(circle at 0% 0%, var(--c4), #fff0 45vmin),radial-gradient(circle at 0% 0%, var(--c2), var(--c5));
+}
+
+.cuboid .side:nth-of-type(3) {
+	height: calc(var(--size) * 1vmin);
+	transform: translate(-50%, -50%) rotateX(90deg) translate3d(0, 0, calc(var(--size) * 0.5vmin));
+	background: radial-gradient(circle at 0% 0%, var(--c4), #fff0 45vmin), radial-gradient(circle at 0% 0%, var(--c1), var(--c6));
+}
+
+.room {
+	width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    filter: hue-rotate(var(--hue));
+}
+
+
+.oops {
+    width: 100%;
+    text-align: center;
+    font-size: 2.25vmin;
+    transform: rotateX(21deg);
+    transform-origin: 100% 50%;
+    top: 10%;
+    position: absolute;
+    left: 0;
+}
+
+.oops h2 {
+    color: #fff2;
+    float: left;
+    transform-origin: 100% 50%;
+    transform: rotateY(-60deg) scaleX(1.5);
+    margin: -5vmin 0 0 -5vmin;
+    font-size: 14vmin;
+    width: 50%;
+    text-shadow: 0px 2px 1px #94B5FF, -1px 1px 2px #94b5ff80, -1px -1px 2px var(--c4), -2px -2px 2px var(--c4), -3px -3px 2px var(--c4), -4px -4px 2px var(--c4), -5px -5px 2px var(--c4), -6px -6px 2px var(--c4), -7px -7px 2px var(--c4), -8px -8px 2px var(--c4), -9px -9px 2px var(--c4), -10px -10px 2px var(--c4), -11px -11px 2px var(--c4), -12px -12px 2px var(--c4), -13px -13px 2px var(--c4), -14px -14px 2px var(--c4), -15px -15px 2px var(--c4), -16px -16px 2px var(--c4), -16px -16px 2px var(--c6), -10px -10px 8px var(--c6), -6px -15px 13px var(--c6);
+}
+
+.oops p {
+    float: right;
+    color: #fff4;
+    transform-origin: 0% 50%;
+    transform: rotateY(60deg) scaleX(1.5);
+    margin-top: -4vmin;
+    margin-right: -2vmin;
+    font-size: 5vmin;
+    max-width: 50vmin;
+    width: 50%;
+    text-shadow: 0px 2px 1px #94B5FF, -1px 1px 2px #94b5ff80, 1px -1px 2px var(--c4), 2px -2px 2px var(--c4), 3px -3px 2px var(--c4), 4px -4px 2px var(--c4), 5px -5px 2px var(--c4), 6px -6px 2px var(--c4), 7px -7px 2px var(--c4), 8px -8px 2px var(--c4), 6px -6px 7px var(--c6), 6px -6px 7px var(--c6);
+}
+
+
+.center-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+.hole {
+    width: 28vmin;
+    height: 20vmin;
+    background: 
+        radial-gradient(circle at 50% 0%, var(--c2), #fff0 45%), 
+        radial-gradient(circle at 30% 100%, #061b43, #fff0 77%), 
+        radial-gradient(circle at 20% 100%, var(--c3), var(--c2), var(--c2));
+    border-radius: 100%;
+    box-shadow: 0 -2px 4px -2px #fffc, 0 2px 3px -3px #fffc inset, 0 2px 6px -4px #000;
+    overflow: hidden;
+    position: relative;
+    margin-top: 30vmin;
+}
+.ladder,
+.ladder-shadow {
+    --shadow: #0008;
+    background: 
+        linear-gradient(180deg, #fff0 33%, var(--shadow), #000), 
+        linear-gradient(90deg, #cec3b9 0 1.2vmin, #b3aba2 0 1.5vmin, #fff0 0 100%), 
+        linear-gradient(90deg, #cec3b9 0 1.2vmin, #b3aba2 0 1.75vmin, #fff0 0 calc(100% - 1.75vmin)), 
+        repeating-linear-gradient(0deg, #cec3b9 0 1.2vmin, #e7dbcf 0 1.75vmin, #fff0 0 6.75vmin), 
+        linear-gradient(90deg, #cec3b9 0 1.2vmin, #b3aba2 0 1.75vmin, #fff0 0 calc(100% - 1.75vmin));
+    width: 10vmin;
+    height: 30vmin;
+    margin-left: 14vmin;
+    position: absolute;
+    top: 0vmin;
+    transform: rotate3d(4, 1, 1, 45deg) skew(0deg, 20deg);
+    background-position: 0 0, 0 0, 8.25vmin 0, 0 -3.25vmin, 0 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.ladder-shadow {
+    filter: invert(1) blur(1px) opacity(0.4) contrast(5);
+    transform: rotate3d(2, 1, 1, 45deg) rotate(-10deg) translate(1.15vmin, 1.9vmin) skew(0deg, 20deg);
+    --shadow: #0000;
+}
+
+.ladder:before, 
+.ladder:after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(210deg, #fff0 0.4vmin, #e7dbcf calc(0.35vmin + 1px) 1.45vmin, #b3aba2 calc(1.4vmin + 1px) 100%);
+    width: 0.85vmin;
+    height: 1.75vmin;
+    transform-origin: 0 1%;
+    transform: rotate(-90deg);
+    top: 1px;
+}
+
+.ladder:after {
+    left: 8.25vmin;
+}
